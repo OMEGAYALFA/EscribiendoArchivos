@@ -21,7 +21,7 @@
 			 <p><input type="button" class="but" name="boton" id="boton" value="Introducir datos">&nbsp;
 			<input type="button" class="but" value="Volver" onClick="volver()"></p>
 			
-			<p>Texto:<br><textarea name="texto" id="texto"></textarea></p>
+			<p>Texto:<br><textarea style="resize: none" name="texto" id="texto"></textarea></p>
 			<p><input type="button" class="but" value="Introducir texto" id="introducirTexto"></p>
 			
     		<p>Archivo a mover:<br><input type="text" name="mod" id="archivo_origen" autocomplete></p>
@@ -45,10 +45,13 @@
         
      </section>
 	<section>
-	  <div id="informacion"><p>Para volver archivos al directorio ra&iacute;z:</p>
-			<p>Directorio donde se encuentra el archivo "/" archivo a mover</p>
-			<p>Ejemplo:</p>
-			<p>Instrumentos musicales/Fagot</p>
+	  <div id="informacion">
+		  <p><span style="font-weight: bold">Para volver archivos al directorio ra&iacute;z:</span><br>
+			Directorio donde se encuentra el archivo "/" archivo a mover<br>
+	    <strong>Ejemplo:</strong> Instrumentos musicales/Fagot</p>
+ 	    <p><strong>Para navegar entre directorios:</strong><br>
+ 	      Hay que volver siempre al directorio
+ 	    raiz y partir desde ahí</p>
 		
 		</div>
 	</section>
