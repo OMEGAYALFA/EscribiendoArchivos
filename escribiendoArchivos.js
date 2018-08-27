@@ -15,7 +15,7 @@ function inicio(){
 	botonBorrar.addEventListener("click",borrarArchivo,false);
 	
 	botonEscribir=document.getElementById("introducirTexto");
-	botonEscribir.addEventListener("click",escribir_archivo, false);
+	botonEscribir.addEventListener("click",escribir_archivo, false);	
 	
 	
 	/*PRIMER PARAMETRO ES EL ESPACIO QUE VA A OCUPAR EL SISTEMA DE ARCHIVOS, MEDIDO EN BITES, LO QUEREMOS EN MEGAS, POR ESO PONEMOS 1024 AL CUADRADO.
@@ -184,6 +184,23 @@ function siExito(){
 	document.getElementById("entrada").value="";	
 	document.getElementById("texto").value="";	
 		zonadatos.innerHTML="Datos introducidos con éxito!!";
+}
+function leerTexto(){
+	var nombre=document.getElementById("entrada").value;
+	
+		espacio_asignado.getFile(nombre, {create:true, exclusive:false},function(archivo){
+			archivo.file(function(objeto_file){
+				zonadatos.innerHTML="Nombre archivo: " + objeto_file.name + "<br>";
+				zonadatos.innerHTML+="Tamaño archivo: " + objeto_file.size + " bytes <br>";
+					var lector=new FileReader();
+						lector.onload=function(e){
+							var resultado=e.target.result;
+								document.getElementById("entrada").value="";
+								zonadatos.innerHTML+="Contenido: " + resultado;
+						};
+						lector.readAsText(objeto_file);
+			},errores);
+		},errores);
 }
 
 function errores(evento){
